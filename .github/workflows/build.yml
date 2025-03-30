@@ -31,10 +31,10 @@ jobs:
         include:
           - backend: vulkan
             artifact_name: zed-release
-            rustflags: "-C target-cpu=znver2"
+            rustflags: "-C opt-level=3 -C target-cpu=znver2 -C lto=thin -C codegen-units=1 -C panic=abort"
           - backend: opengl
             artifact_name: zed-release-opengl
-            rustflags: "--cfg gles -C target-cpu=znver2"
+            rustflags: "--cfg gles -C opt-level=3 -C target-cpu=znver2 -C lto=thin -C codegen-units=1 -C panic=abort"
 
     steps:
       - name: Enable long paths in Git
