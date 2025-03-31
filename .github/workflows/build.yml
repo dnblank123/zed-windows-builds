@@ -31,7 +31,7 @@ jobs:
         include:
           - backend: vulkan
             artifact_name: zed-release
-            rustflags: "-C opt-level=3 -C target-cpu=znver2 -C codegen-units=1 -C panic=abort"
+            rustflags: "-C opt-level=3 -C target-feature=+fast-math -C lto=thin target-cpu=znver2 -C codegen-units=1 -C panic=abort"
           - backend: opengl
             artifact_name: zed-release-opengl
             rustflags: "--cfg gles"
